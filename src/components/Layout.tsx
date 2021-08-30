@@ -9,7 +9,10 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps) {
   return (
-    <Box height={"100vh"} bg={"gray.900"}>
+    <Box
+      height={"100vh"}
+      bgGradient={"linear(to-t, secondary.dark 1%, surface 99%)"}
+    >
       <Header />
       <Flex>{props.children}</Flex>
     </Box>

@@ -2,8 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -15,18 +13,8 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font: "Poppins", "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  color: #f8f9fa;
+  color: #a87300;
 }
 
 *::-webkit-scrollbar {
