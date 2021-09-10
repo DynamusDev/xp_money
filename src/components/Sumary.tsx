@@ -95,23 +95,9 @@ export function Sumary() {
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
           <Text>Total</Text>
-          <FaDollarSign
-            size={"20px"}
-            color={
-              Number(summary.deposits) > Number(summary.withdraws)
-                ? "#44DB58"
-                : "#FF7B80"
-            }
-          />
+          <FaDollarSign size={"20px"} />
         </Flex>
-        <Text
-          fontSize={"30px"}
-          color={
-            Number(summary.deposits) > Number(summary.withdraws)
-              ? "green"
-              : "red"
-          }
-        >
+        <Text fontSize={"30px"}>
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
