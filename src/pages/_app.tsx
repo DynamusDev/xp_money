@@ -1,13 +1,16 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { theme } from "../theme/theme";
+import { theme } from "../styles/theme";
 
 import "../styles/globals.css";
+import { TransactionsProvider } from "../hooks/useTransactions";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <TransactionsProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </TransactionsProvider>
   );
 }
 

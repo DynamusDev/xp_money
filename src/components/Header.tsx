@@ -1,37 +1,41 @@
 import { Flex } from "./_UI_/Flex";
 import { Text } from "./_UI_/Text";
-import { NavButton } from "./NavButton";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Button } from "./_UI_/Button";
+import theme from "@chakra-ui/theme";
 
-export function Header() {
+interface HeaderProps {
+  onOpenNewTransactionModal: () => void;
+}
+
+export function Header({ onOpenNewTransactionModal }: HeaderProps) {
   return (
     <Flex
       w={"100%"}
-      align={"center"}
-      justify={"center"}
-      direction={"column"}
+      h={"200px"}
+      justify={"space-between"}
       gridGap={"10px"}
       p={"20px"}
-      bg={"transparent"}
+      bg={"gray.800"}
     >
-      <Text
-        lineHeight={"30px"}
-        fontFamily={"Allison"}
-        color={"primary.light"}
-        as={"h1"}
-        fontSize={"45px"}
-      >
-        Alexandre Nascimento
+      <Text fontFamily={"Allison"} fontSize={"50px"}>
+        XP Money
       </Text>
-      <Flex
-        w={useBreakpointValue({ base: "100%", lg: "50%" })}
-        justify={"space-around"}
-        align={"center"}
+
+      <Button
+        onClick={onOpenNewTransactionModal}
+        style={{
+          outline: "none",
+        }}
+        _hover={{
+          background: theme.colors.gray["700"],
+        }}
+        bg={"gray.700"}
+        h={"50px"}
+        borderRadius={"4px"}
+        w={"200px"}
       >
-        <NavButton to={"início"} />
-        <NavButton to={"projetos"} />
-        <NavButton to={"blog"} />
-      </Flex>
+        Nova transação
+      </Button>
     </Flex>
   );
 }
