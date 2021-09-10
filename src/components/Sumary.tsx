@@ -97,7 +97,11 @@ export function Sumary() {
           <Text>Total</Text>
           <FaDollarSign
             size={"20px"}
-            color={summary.deposits > summary.withdraws ? "#44DB58" : "#FF7B80"}
+            color={
+              Number(summary.deposits) > Number(summary.withdraws)
+                ? "#44DB58"
+                : "#FF7B80"
+            }
           />
         </Flex>
         <Text
