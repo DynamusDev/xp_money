@@ -1,0 +1,40 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ced4da;
+  border-radius: 8px;
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b5bec7;
+}
+
+*::-webkit-scrollbar-track {
+  background: #e9ecee;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
