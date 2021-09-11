@@ -1,32 +1,17 @@
-import { useState } from "react";
-import { Layout } from "../components/Layout";
-import { Sumary } from "../components/Sumary";
-import { TransactionsTable } from "../components/TransactionsTable";
-import { Box } from "../components/_UI_/Box";
-import { TransactionModal } from "../components/TransactionModal";
-import { Header } from "../components/Header";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 export default function Home() {
-  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
-    useState(false);
+  const route = useRouter();
 
-  function handleOpenNewTransactionModal() {
-    setIsNewTransactionModalOpen(true);
-  }
+  useEffect(() => {
+    const getUser = JSON.parse(localStorage.getItem("user"));
+    if (getUser) {
+      route.push("dashboard");
+      return;
+    }
+    route.push("login");
+    return;
+  }, [route]);
 
-  function handleCloseNewTransactionModal() {
-    setIsNewTransactionModalOpen(false);
-  }
-  return (
-    <Layout>
-      <Box w={"100vw"} h={"100vh"}>
-        <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
-        <Sumary />
-        <TransactionsTable />
-        <TransactionModal
-          isOpen={isNewTransactionModalOpen}
-          onRequestClose={handleCloseNewTransactionModal}
-        />
-      </Box>
-    </Layout>
-  );
+  return <h1></h1>;
 }

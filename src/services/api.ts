@@ -1,5 +1,9 @@
 import axios from "axios";
 
+const url = "https://chat-cadmus.herokuapp.com/";
+
 export const api = axios.create({
-  baseURL: "https://chat-cadmus.herokuapp.com/",
+  baseURL: url,
 });
+
+export const sock = url;

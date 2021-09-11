@@ -20,7 +20,7 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
     >
       <Text
         fontFamily={"Allison"}
-        fontSize={useBreakpointValue({ base: "24px", lg: "50px" })}
+        fontSize={useBreakpointValue({ base: "24px", lg: "40px" })}
       >
         XP Money
       </Text>

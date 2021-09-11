@@ -38,7 +38,7 @@ export function Sumary() {
       justify={"center"}
       gridGap={useBreakpointValue({ base: "10px", lg: "2rem" })}
       p={useBreakpointValue({ base: "10px", lg: "30px" })}
-      mt={useBreakpointValue({ base: "0", lg: "-100px" })}
+      mt={useBreakpointValue({ base: "0", lg: "-90px" })}
     >
       <Flex
         direction={"column"}
@@ -47,8 +47,8 @@ export function Sumary() {
         py={useBreakpointValue({ base: "5px", lg: "10px" })}
         background={useBreakpointValue({ base: "transparent", lg: "gray.700" })}
         borderRadius={"0.4rem"}
-        h={useBreakpointValue({ base: "auto", lg: "150px" })}
-        w={useBreakpointValue({ base: "100%", lg: "25%" })}
+        h={useBreakpointValue({ base: "auto", lg: "120px" })}
+        w={useBreakpointValue({ base: "100%", lg: "20%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
           <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>
@@ -77,8 +77,8 @@ export function Sumary() {
         background={useBreakpointValue({ base: "transparent", lg: "gray.700" })}
         borderRadius={"0.4rem"}
         py={useBreakpointValue({ base: "5px", lg: "10px" })}
-        h={useBreakpointValue({ base: "auto", lg: "150px" })}
-        w={useBreakpointValue({ base: "100%", lg: "25%" })}
+        h={useBreakpointValue({ base: "auto", lg: "120px" })}
+        w={useBreakpointValue({ base: "100%", lg: "20%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
           <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>
@@ -106,8 +106,8 @@ export function Sumary() {
         background={useBreakpointValue({ base: "transparent", lg: "gray.700" })}
         borderRadius={"0.4rem"}
         py={useBreakpointValue({ base: "5px", lg: "10px" })}
-        h={useBreakpointValue({ base: "auto", lg: "150px" })}
-        w={useBreakpointValue({ base: "100%", lg: "25%" })}
+        h={useBreakpointValue({ base: "auto", lg: "120px" })}
+        w={useBreakpointValue({ base: "100%", lg: "20%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
           <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>

@@ -4,8 +4,10 @@ import {
   useState,
   ReactNode,
   useContext,
+  useMemo,
 } from "react";
-import { api } from "../services/api";
+import { api, sock } from "../services/api";
+import socketio from "socket.io-client";
 
 interface TransactionsProps {
   id: number;
@@ -26,6 +28,7 @@ type TransactionInput = Omit<TransactionsProps, "id" | "createdAt">;
 interface TransactionsContextData {
   transactions: TransactionsProps[];
   createTransaction: (transaction: TransactionInput) => Promise<void>;
+  loadingCreateTransaction: boolean;
 }
 
 const TransactionsContext = createContext<TransactionsContextData>(
@@ -34,6 +37,12 @@ const TransactionsContext = createContext<TransactionsContextData>(
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<TransactionsProps[]>([]);
+  const [loadingCreateTransaction, setLoadingCreateTransaction] =
+    useState(false);
+  const socket = useMemo(
+    () => socketio(sock, { transports: ["websocket"] }),
+    []
+  );
 
   useEffect(() => {
     api
@@ -41,15 +50,30 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       .then((response) => setTransactions(response.data.transactions));
   }, []);
 
-  async function createTransaction(transactionImput: TransactionInput) {
-    const response = await api.post("/transactions/create", transactionImput);
-    const { transation } = response.data;
+  useEffect(() => {
+    socket.on("transaction", (data: TransactionsProps) => {
+      setTransactions([...transactions, data]);
+    });
+  }, [socket, transactions]);
 
-    setTransactions([...transactions, transation]);
+  async function createTransaction(transactionImput: TransactionInput) {
+    setLoadingCreateTransaction(true);
+    try {
+      const response = await api.post("/transactions/create", transactionImput);
+      const { transaction } = response.data;
+
+      setTransactions([...transactions, transaction]);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoadingCreateTransaction(false);
+    }
   }
 
   return (
-    <TransactionsContext.Provider value={{ transactions, createTransaction }}>
+    <TransactionsContext.Provider
+      value={{ transactions, createTransaction, loadingCreateTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   );

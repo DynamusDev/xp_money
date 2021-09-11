@@ -24,7 +24,7 @@ export function TransactionModal({
   isOpen,
   onRequestClose,
 }: newTransactionModalProps) {
-  const { createTransaction } = useTransactions();
+  const { createTransaction, loadingCreateTransaction } = useTransactions();
   const [type, setType] = useState("deposit");
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
@@ -100,9 +100,6 @@ export function TransactionModal({
           <Flex margin={"24px auto"} gridGap={"32px"}>
             <Button
               onClick={() => setType("deposit")}
-              style={{
-                outline: "none",
-              }}
               border={`1px solid ${transparentize(0.9, theme.colors.green)}`}
               background={
                 type === "deposit"
@@ -176,6 +173,7 @@ export function TransactionModal({
             })}
             fontWeight={"600"}
             type={"submit"}
+            isLoading={loadingCreateTransaction}
           >
             Cadastrar
           </Button>

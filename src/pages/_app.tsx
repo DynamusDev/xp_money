@@ -3,14 +3,20 @@ import { theme } from "../styles/theme";
 
 import "../styles/globals.css";
 import { TransactionsProvider } from "../hooks/useTransactions";
+import { UserProvider } from "../hooks/useAuth";
+import { FeedbackProvider } from "../hooks/FeedbackProvider";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <TransactionsProvider>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </TransactionsProvider>
+    <FeedbackProvider>
+      <UserProvider>
+        <TransactionsProvider>
+          <ChakraProvider theme={theme}>
+            <Component {...pageProps} />
+          </ChakraProvider>
+        </TransactionsProvider>
+      </UserProvider>
+    </FeedbackProvider>
   );
 }
 

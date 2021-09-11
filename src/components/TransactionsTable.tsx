@@ -21,12 +21,12 @@ export function TransactionsTable() {
       marginTop={useBreakpointValue({ base: "20px", lg: "4rem" })}
       p={useBreakpointValue({ base: "0", lg: "10px 10%" })}
     >
-      <Table w={"100%"} borderSpacing={"0 8px"}>
+      <Table overflowY={"hidden"} w={"100%"} borderSpacing={"0 8px"}>
         <Thead>
           <Tr>
             <Th
               color={"gray.200"}
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -35,7 +35,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -44,7 +44,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -53,7 +53,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -63,7 +63,7 @@ export function TransactionsTable() {
           </Tr>
         </Thead>
         {transactions.map((transaction) => (
-          <Tr key={transaction.id}>
+          <Tr overflowY={"auto"} key={transaction.id}>
             <Td
               fontSize={isMobile ? "10px" : "16px"}
               p={"8px 16px"}
@@ -74,7 +74,7 @@ export function TransactionsTable() {
             </Td>
             <Td
               color={transaction.type === "withdraw" ? "red" : "green"}
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               p={"8px 16px"}
               border={"0"}
               borderRadius={"0.4rem"}
@@ -85,7 +85,7 @@ export function TransactionsTable() {
               }).format(transaction.amount)}
             </Td>
             <Td
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               p={"8px 16px"}
               border={"0"}
               borderRadius={"0.4rem"}
@@ -93,7 +93,7 @@ export function TransactionsTable() {
               {transaction.category}
             </Td>
             <Td
-              fontSize={isMobile ? "10px" : "16px"}
+              fontSize={isMobile ? "10px" : "14px"}
               p={"8px 16px"}
               border={"0"}
               borderRadius={"0.4rem"}
