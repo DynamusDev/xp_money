@@ -116,7 +116,12 @@ export function Sumary() {
             size={useBreakpointValue({ base: "12px", lg: "18px" })}
           />
         </Flex>
-        <Text fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}>
+        <Text
+          color={
+            summary.total > 0 ? "green" : summary.total < 0 ? "red" : "gray.100"
+          }
+          fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}
+        >
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
