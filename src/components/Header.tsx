@@ -16,7 +16,7 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
       justify={"space-between"}
       gridGap={"10px"}
       p={"20px"}
-      bg={"gray.800"}
+      bg={"gray.900"}
     >
       <Text
         fontFamily={"Allison"}

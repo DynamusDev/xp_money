@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps) {
   return (
-    <Box height={"100vh"} bg={"gray.700"}>
+    <Box height={"100vh"} bg={"gray.800"}>
       <Flex>{props.children}</Flex>
     </Box>
   );
