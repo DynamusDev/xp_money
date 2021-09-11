@@ -1,3 +1,4 @@
+import { useBreakpointValue } from "@chakra-ui/media-query";
 import {
   Table,
   Thead,
@@ -13,14 +14,19 @@ import { Box } from "./_UI_/Box";
 
 export function TransactionsTable() {
   const { transactions } = useTransactions();
+  const isMobile = useBreakpointValue({ base: true, md: false, lg: false });
 
   return (
-    <Box marginTop={"4rem"} p={"10px 10%"}>
+    <Box
+      marginTop={useBreakpointValue({ base: "20px", lg: "4rem" })}
+      p={useBreakpointValue({ base: "0", lg: "10px 10%" })}
+    >
       <Table w={"100%"} borderSpacing={"0 8px"}>
         <Thead>
           <Tr>
             <Th
               color={"gray.200"}
+              fontSize={isMobile ? "10px" : "16px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -29,6 +35,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
+              fontSize={isMobile ? "10px" : "16px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -37,6 +44,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
+              fontSize={isMobile ? "10px" : "16px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -45,6 +53,7 @@ export function TransactionsTable() {
             </Th>
             <Th
               color={"gray.200"}
+              fontSize={isMobile ? "10px" : "16px"}
               textAlign={"left"}
               lineHeight={"24px"}
               p={"8px 16px"}
@@ -55,11 +64,17 @@ export function TransactionsTable() {
         </Thead>
         {transactions.map((transaction) => (
           <Tr key={transaction.id}>
-            <Td p={"8px 16px"} border={"0"} borderRadius={"0.4rem"}>
+            <Td
+              fontSize={isMobile ? "10px" : "16px"}
+              p={"8px 16px"}
+              border={"0"}
+              borderRadius={"0.4rem"}
+            >
               {transaction.title}
             </Td>
             <Td
               color={transaction.type === "withdraw" ? "red" : "green"}
+              fontSize={isMobile ? "10px" : "16px"}
               p={"8px 16px"}
               border={"0"}
               borderRadius={"0.4rem"}
@@ -69,10 +84,20 @@ export function TransactionsTable() {
                 currency: "BRL",
               }).format(transaction.amount)}
             </Td>
-            <Td p={"8px 16px"} border={"0"} borderRadius={"0.4rem"}>
+            <Td
+              fontSize={isMobile ? "10px" : "16px"}
+              p={"8px 16px"}
+              border={"0"}
+              borderRadius={"0.4rem"}
+            >
               {transaction.category}
             </Td>
-            <Td p={"8px 16px"} border={"0"} borderRadius={"0.4rem"}>
+            <Td
+              fontSize={isMobile ? "10px" : "16px"}
+              p={"8px 16px"}
+              border={"0"}
+              borderRadius={"0.4rem"}
+            >
               {new Intl.DateTimeFormat("pt-BR").format(
                 new Date(transaction.createdAt)
               )}

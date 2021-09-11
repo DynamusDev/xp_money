@@ -37,8 +37,7 @@ export function Sumary() {
       justify={"center"}
       gridGap={useBreakpointValue({ base: "10px", lg: "2rem" })}
       p={useBreakpointValue({ base: "10px", lg: "30px" })}
-      direction={useBreakpointValue({ base: "column", lg: "row" })}
-      mt={"-100px"}
+      mt={useBreakpointValue({ base: "0", lg: "-100px" })}
     >
       <Flex
         direction={"column"}
@@ -51,11 +50,19 @@ export function Sumary() {
         w={useBreakpointValue({ base: "100%", lg: "25%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
-          <Text>Entradas</Text>
+          <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>
+            Entradas
+          </Text>
 
-          <FaArrowAltCircleDown size={"20px"} color={"#44DB58"} />
+          <FaArrowAltCircleDown
+            size={useBreakpointValue({ base: "12px", lg: "18px" })}
+            color={"#44DB58"}
+          />
         </Flex>
-        <Text fontSize={"30px"} color={"green"}>
+        <Text
+          fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}
+          color={"green"}
+        >
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
@@ -73,10 +80,18 @@ export function Sumary() {
         w={useBreakpointValue({ base: "100%", lg: "25%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
-          <Text>Saídas</Text>
-          <FaArrowAltCircleUp size={"20px"} color={"#FF7B80"} />
+          <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>
+            Saídas
+          </Text>
+          <FaArrowAltCircleUp
+            size={useBreakpointValue({ base: "12px", lg: "18px" })}
+            color={"#FF7B80"}
+          />
         </Flex>
-        <Text fontSize={"30px"} color={"red"}>
+        <Text
+          fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}
+          color={"red"}
+        >
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
@@ -94,10 +109,14 @@ export function Sumary() {
         w={useBreakpointValue({ base: "100%", lg: "25%" })}
       >
         <Flex gridGap={"10px"} align={"center"} justify={"center"}>
-          <Text>Total</Text>
-          <FaDollarSign size={"20px"} />
+          <Text fontSize={useBreakpointValue({ base: "12px", lg: "18px" })}>
+            Total
+          </Text>
+          <FaDollarSign
+            size={useBreakpointValue({ base: "12px", lg: "18px" })}
+          />
         </Flex>
-        <Text fontSize={"30px"}>
+        <Text fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}>
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",

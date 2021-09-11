@@ -1,4 +1,5 @@
 import { FormEvent, useCallback, useState } from "react";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 import {
   Modal,
   ModalOverlay,
@@ -53,7 +54,12 @@ export function TransactionModal({
   return (
     <Modal isOpen={isOpen} onClose={onRequestClose}>
       <ModalOverlay />
-      <ModalContent w={"80%"} maxWidth={"576px"} bg={"gray.800"}>
+      <ModalContent
+        w={"100%"}
+        h={useBreakpointValue({ base: "70%", lg: "auto" })}
+        maxWidth={"576px"}
+        bg={"gray.800"}
+      >
         <ModalCloseButton />
         <Text fontSize={"24px"} m={"10px auto 32px"}>
           Cadastrar transação
@@ -70,7 +76,7 @@ export function TransactionModal({
             w={"calc(100% - 40px)"}
             m={"0 auto"}
             p={"0 24px"}
-            height={"64px"}
+            height={useBreakpointValue({ base: "50px", lg: "60px" })}
             borderRadius={"0.4rem"}
             border={`1px solid ${theme.colors.gray["100"]}`}
             fontWeight={"400"}
@@ -82,16 +88,16 @@ export function TransactionModal({
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             w={"calc(100% - 40px)"}
-            m={"16px auto"}
+            m={"24px auto 0"}
             p={"0 24px"}
-            height={"64px"}
+            height={useBreakpointValue({ base: "50px", lg: "60px" })}
             borderRadius={"0.4rem"}
             border={`1px solid ${theme.colors.gray["100"]}`}
             fontWeight={"400"}
             fontSize={"16px"}
           />
 
-          <Flex margin={"16px auto"} gridGap={"32px"}>
+          <Flex margin={"24px auto"} gridGap={"32px"}>
             <Button
               onClick={() => setType("deposit")}
               style={{
@@ -148,7 +154,7 @@ export function TransactionModal({
             w={"calc(100% - 40px)"}
             m={"0 auto"}
             p={"0 24px"}
-            height={"64px"}
+            height={useBreakpointValue({ base: "50px", lg: "60px" })}
             borderRadius={"0.4rem"}
             border={`1px solid ${theme.colors.gray["100"]}`}
             fontWeight={"400"}
@@ -156,15 +162,18 @@ export function TransactionModal({
           />
 
           <Button
-            w={"calc(100% - 40px)"}
+            w={useBreakpointValue({ base: "70%", lg: "calc(100% - 40px)" })}
             _hover={{ background: darken(0.1, theme.colors.green) }}
             p={"0 16px"}
-            height={"64px"}
+            height={useBreakpointValue({ base: "35px", lg: "60px" })}
             bg={"green"}
             borderRadius={"4rem"}
             fontSize={"16px"}
             border={"0"}
-            margin={"24px auto 0"}
+            margin={useBreakpointValue({
+              base: "60px auto 0",
+              lg: "24px auto 0",
+            })}
             fontWeight={"600"}
             type={"submit"}
           >

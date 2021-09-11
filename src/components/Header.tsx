@@ -1,3 +1,4 @@
+import { useBreakpointValue } from "@chakra-ui/media-query";
 import { Flex } from "./_UI_/Flex";
 import { Text } from "./_UI_/Text";
 import { Button } from "./_UI_/Button";
@@ -11,13 +12,16 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
   return (
     <Flex
       w={"100%"}
-      h={"200px"}
+      h={useBreakpointValue({ base: "80px", lg: "200px" })}
       justify={"space-between"}
       gridGap={"10px"}
       p={"20px"}
       bg={"gray.800"}
     >
-      <Text fontFamily={"Allison"} fontSize={"50px"}>
+      <Text
+        fontFamily={"Allison"}
+        fontSize={useBreakpointValue({ base: "24px", lg: "50px" })}
+      >
         XP Money
       </Text>
 
@@ -30,9 +34,10 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
           background: theme.colors.gray["700"],
         }}
         bg={"gray.700"}
-        h={"50px"}
+        h={useBreakpointValue({ base: "30px", lg: "50px" })}
         borderRadius={"4px"}
-        w={"200px"}
+        w={useBreakpointValue({ base: "120px", lg: "200px" })}
+        fontSize={useBreakpointValue({ base: "12px", lg: "16px" })}
       >
         Nova transação
       </Button>
