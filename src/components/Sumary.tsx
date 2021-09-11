@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { Flex } from "./_UI_/Flex";
 import { Text } from "./_UI_/Text";
+import { theme } from "../styles/theme";
 
 export function Sumary() {
   const { transactions } = useTransactions();
@@ -113,12 +114,23 @@ export function Sumary() {
             Total
           </Text>
           <FaDollarSign
+            color={
+              Number(summary.total) > 0
+                ? theme.colors.green
+                : Number(summary.total) < 0
+                ? theme.colors.red
+                : theme.colors.gray["100"]
+            }
             size={useBreakpointValue({ base: "12px", lg: "18px" })}
           />
         </Flex>
         <Text
           color={
-            summary.total > 0 ? "green" : summary.total < 0 ? "red" : "gray.100"
+            Number(summary.total) > 0
+              ? "green"
+              : Number(summary.total) < 0
+              ? "red"
+              : "gray.100"
           }
           fontSize={useBreakpointValue({ base: "16px", lg: "30px" })}
         >
