@@ -39,6 +39,7 @@ interface UserContextData {
   user: UserProps;
   login: (login: LoginInput) => Promise<void>;
   loadingLogin: boolean;
+  isAuthenticatedUser: boolean;
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData);
@@ -46,6 +47,7 @@ const UserContext = createContext<UserContextData>({} as UserContextData);
 export function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const [loadingLogin, setLoadingLogin] = useState(false);
+  const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false);
   const { openToast } = useContext(FeedbackContext);
   const route = useRouter();
 
@@ -53,7 +55,11 @@ export function UserProvider({ children }: UserProviderProps) {
     const getUser: UserProps = JSON.parse(localStorage.getItem("user"));
     if (getUser) {
       setUser(getUser);
+      setIsAuthenticatedUser(true);
+      return;
     }
+    setIsAuthenticatedUser(false);
+    return;
   }, []);
 
   async function login(loginInput: LoginInput) {
@@ -82,7 +88,9 @@ export function UserProvider({ children }: UserProviderProps) {
   }
 
   return (
-    <UserContext.Provider value={{ login, user, loadingLogin }}>
+    <UserContext.Provider
+      value={{ login, user, loadingLogin, isAuthenticatedUser }}
+    >
       {children}
     </UserContext.Provider>
   );

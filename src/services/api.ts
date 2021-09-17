@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://chat-cadmus.herokuapp.com/";
+const url = "https://dynamusdev-api.herokuapp.com/";
 
 export const api = axios.create({
   baseURL: url,

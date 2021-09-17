@@ -9,8 +9,7 @@ export default function Home() {
       route.push("dashboard");
       return;
     }
-    route.push("login");
-    return;
+    return route.push("login");
   }, [route]);
 
   return <h1></h1>;
